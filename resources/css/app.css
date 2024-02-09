@@ -1,0 +1,7 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+.pagination li:first-child > a, .pagination li:first-child > span,
+.pagination li:last-child > a, .pagination li:last-child > span {
+    font-size: 0.8em; /* Adjust the font size to make the arrows smaller */
+}
