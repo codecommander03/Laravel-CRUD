@@ -32,26 +32,18 @@ svg {
 
 
 label,input {
-  /* In order to define widths */
   display: inline-block;
 }
 
 label {
   width: 30%;
-  /* Positions the label text beside the input */
   text-align: right;
 }
 
 label+input {
   width: 30%;
-  /* Large margin-right to force the next element to the new-line
-           and margin-left to create a gutter between the label and input */
   margin: 0 30% 0 4%;
 }
-
-
-/* Only the submit button is matched by this selector,
-       but to be sure you could use an id or class for that button */
 
 input+input {
   float: right;
@@ -134,7 +126,7 @@ function w3_close() {
         
         <div class="center" style="width:55%">
             <h1>Create a new User</h1>
-            <form method="POST" action ="{{route('users.store') }}" style="margin: auto;" class="center">
+            <form method="POST" action ="{{ route('users.store') }}" style="margin: auto;" class="center">
                 @csrf
 
                 <label for="name">Name:</label>
