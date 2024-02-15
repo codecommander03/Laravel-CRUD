@@ -16,6 +16,25 @@
             height: 100vh;
         }
 
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            background-color: #f4f4f4;
+            position: fixed;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+
         form {
             background-color: #fff;
             padding: 20px;
@@ -57,9 +76,27 @@
             background-color: #0056b3;
         }
     </style>
+    <script>
+
+        function toggle() {
+            if(document.getElementById("mySidebar").style.display == "block"){
+                document.getElementById("mySidebar").style.display = "none"
+            }
+            else{
+                document.getElementById("mySidebar").style.display = "block"
+            }
+        }
+
+    </script>
 </head>
 <body>
     <div>
+        <div class="sidebar" style="display:none; margin-top: 37px" id="mySidebar">
+            <a href="/users" class="">All Users</a>
+            <a href="/users#create" class="">Create</a>
+        </div>
+        <button style="font-size: large; height: 32px; width: 38px; margin-top: 5px; margin-left: 5px; padding-left: 2px; padding-right: 0px; padding-top: 3px;" onclick="toggle()"><strong>☰</strong></button>
+        
         <form method="POST" action="{{ route('users.update',$user) }}">
             @csrf
             @method('patch')
