@@ -23,14 +23,19 @@
 
         h2 {
             font-size: 24px;
-            color: #333;
-            margin-bottom: 20px;
+            color: black;
+            margin-bottom: 30px;
+            margin-left: 200px;
         }
 
         h1 {
             font-size: 18px;
             color: #444;
             margin-bottom: 10px;
+        }
+
+        h1:hover {
+            color: black;
         }
 
         hr {
@@ -64,10 +69,46 @@
         button:focus {
             outline: none;
         }
+
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            background-color: #f4f4f4;
+            position: fixed;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+        }
     </style>
+
+<script>
+
+function toggle() {
+    if(document.getElementById("mySidebar").style.display == "block"){
+        document.getElementById("mySidebar").style.display = "none"
+    }
+    else{
+        document.getElementById("mySidebar").style.display = "block"
+    }
+}
+
+</script>
 </head>
 <body>
+    <div class="sidebar" style="display:none; margin-top: 37px" id="mySidebar">
+        <a href="/users" class="">All Users</a>
+        <a href="/users#create" class="">Create</a>
+    </div>
+    <button style="font-size: large; height: 32px; width: 38px; margin-top: 5px; margin-left: 5px; padding-left: 2px; padding-right: 0px; padding-top: 3px;" onclick="toggle()"><strong>☰</strong></button>
+    
     <div class="container">
+        
+
         <h2>User Details</h2>
         <h1>Id: {{$user->id}}</h1>
         <h1>Name: {{$user->name}}</h1>
