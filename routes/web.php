@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Middleware\middleware1;
 use App\Http\Middleware\middleware2;
 use Illuminate\Support\Facades\Route;
@@ -21,52 +22,53 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-// Route::get('/a', function(){
-//     return view('a');
-// });
+/////////////////////////////////////
+    // Route::get('/a', function(){
+    //     return view('a');
+    // });
 
-// Route::redirect('/','/a');
+    // Route::redirect('/','/a');
 
-// // Route::get('/users/{id?}', function($id = 'aditya'){
-// //     return("Hi, $id");
-// // })->where('id','.*');
+    // // Route::get('/users/{id?}', function($id = 'aditya'){
+    // //     return("Hi, $id");
+    // // })->where('id','.*');
 
-// Route::get('/user/profile', function () {
-//     return "named route hit!";
-// })->name('profile_route');
+    // Route::get('/user/profile', function () {
+    //     return "named route hit!";
+    // })->name('profile_route');
 
-// Route::get('/jump',function(){
-//     return redirect()->route('profile_route');
-// });
+    // Route::get('/jump',function(){
+    //     return redirect()->route('profile_route');
+    // });
 
-// Route::get('/profile',function() {
-//     return "jumped";
-// });
+    // Route::get('/profile',function() {
+    //     return "jumped";
+    // });
 
-// Route::get('/user/{id}',function($id){
-//     return "$id user";
-// })->name('rt')->middleware('m2');
+    // Route::get('/user/{id}',function($id){
+    //     return "$id user";
+    // })->name('rt')->middleware('m2');
 
-// Route::middleware(['m1','m2'])->group(function(){
-//     Route::get('/abc',function(){
-//         return "middleware ends";
-//     })->name('profile1');
-// });
+    // Route::middleware(['m1','m2'])->group(function(){
+    //     Route::get('/abc',function(){
+    //         return "middleware ends";
+    //     })->name('profile1');
+    // });
 
-// Route::get('/user/{id}', [UserController::class, 'show'])->middleware('m1');
+    // Route::get('/user/{id}', [UserController::class, 'show'])->middleware('m1');
 
-// Route::resource('/photos',PhotoController::class);
+    // Route::resource('/photos',PhotoController::class);
 
-// Route::prefix('admin.')->group(function () {
-//     Route::get('/users', function () {
-//         return "hi-5";
-//     })->name('users');
-// });
+    // Route::prefix('admin.')->group(function () {
+    //     Route::get('/users', function () {
+    //         return "hi-5";
+    //     })->name('users');
+    // });
 
-// Route::get('users/{user}',function(User $user){
-//     return $user->email;
-// });
-/////////////////////////////////////////////////////////////////////////////
+    // Route::get('users/{user}',function(User $user){
+    //     return $user->email;
+    // });
+////////////////////////////////////
 
 
 Route::group([],function(){
@@ -78,3 +80,6 @@ Route::group([],function(){
     Route::get('/users/edit/{user}',[UserController::class,'edit'])->name('users.edit');
     Route::patch('/users/{id}',[UserController::class,'update'])->name('users.update');
 });
+
+Route::post('/fname',[AjaxController::class, 'index']);
+Route::post('/femail',[AjaxController::class, 'store']);
